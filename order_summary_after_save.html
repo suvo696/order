@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <title>Cart | OxyJoy</title>
+	<style>
+		.circle {
+		    background: #676161fa;
+			color: white;
+			font: 93% Arial, sans-serif;
+			width: 2em;
+			height: 2em;
+			box-sizing: initial;
+			border: 0.1em solid #666;
+			text-align: center;
+			border-radius: 50%;    
+
+			line-height: 0em;
+			box-sizing: content-box;   
+
+		}
+		.meter {
+		  box-sizing: content-box;
+		  height: 1.3vh; /* Can be anything */
+		  position: relative;
+		  width: 34vw;
+		 
+		  border-radius: 25px;
+		  background: rgb(116 117 116 / 47%);
+		  box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+		}
+		.meter > span {
+		  display: block;
+		  height: 100%;
+		  border-top-right-radius: 8px;
+		  border-bottom-right-radius: 8px;
+		  border-top-left-radius: 20px;
+		  border-bottom-left-radius: 20px;
+		  background-color: rgb(116 117 116);
+		  background-image: linear-gradient(
+			center bottom,
+			rgb(43, 194, 83) 37%,
+			rgb(84, 240, 84) 69%
+		  );
+		  box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
+			inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+		  position: relative;
+		  overflow: hidden;
+		}
+		.meter > span:after,
+		.animate > span > span {
+		  content: "";
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  bottom: 0;
+		  right: 0;
+		  background-image: linear-gradient(
+			-45deg,
+			rgba(255, 255, 255, 0.2) 25%,
+			transparent 25%,
+			transparent 50%,
+			rgba(255, 255, 255, 0.2) 50%,
+			rgba(255, 255, 255, 0.2) 75%,
+			transparent 75%,
+			transparent
+		  );
+		  z-index: 1;
+		  background-size: 50px 50px;
+		  animation: move 2s linear infinite;
+		  border-top-right-radius: 8px;
+		  border-bottom-right-radius: 8px;
+		  border-top-left-radius: 20px;
+		  border-bottom-left-radius: 20px;
+		  overflow: hidden;
+		}
+
+		.animate > span:after {
+		  display: none;
+		}
+		@keyframes move {
+			  0% {
+				background-position: 0 0;
+			  }
+			  100% {
+				background-position: 50px 50px;
+			  }
+			}
+
+			.orange > span {
+			  background-image: linear-gradient(#f1a165, #f36d0a);
+			}
+
+			.red > span {
+			  background-image: linear-gradient(#f0a3a3, #f42323);
+			}
+
+			.nostripes > span > span,
+			.nostripes > span::after {
+			  background-image: none;
+			}
+		.dropbtn {
+		  background-color: transparent;
+		  color: #f4813f;
+		  padding: 16px;
+		  font-size: 16px;
+		  border: none;
+		  cursor: pointer;
+		}
+
+		.dropdown {
+		  position: relative;
+		  display: inline-block;
+		}
+
+		.dropdown-content {
+		  display: none;
+		  position: absolute;
+		  right: 0;
+		  background-color: #f9f9f9;
+		  min-width: 160px;
+		  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		  z-index: 1;
+		}
+
+		.dropdown-content a {
+		  color: black;
+		  padding: 12px 16px;
+		  text-decoration: none;
+		  display: block;
+		}
+
+		.dropdown-content a:hover {background-color: #f4813f;}
+		.dropdown:hover .dropdown-content {display: block;}
+		.dropdown:hover .dropbtn {background-color: transparent;}
+	</style>
+  
+  </head>
+  <body>
+	<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f4813f;">
+	  <div class="container-fluid">
+		<img src="logo2.jpeg" alt="" style = "height: 10vh;width: 3vw;" class="d-inline-block align-text-top">
+		
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		  <div 	style="   margin-left: 8%;    margin-bottom: -2.91%;">
+			<h5 style="font-size: 125%; color:white">
+				<span class="circle">1</span>&nbsp My Cart &nbsp &nbsp 
+				<span class="circle">2</span>&nbsp Order Summary &nbsp &nbsp 
+				<span class="circle" style="background: #827b7b99;border-color: #827b7b99;color: #f5f1f1b0;">3</span>
+				&nbsp <span style="color: #f5f1f1b0;">Payment</span></h5>
+			
+			<div class="meter">
+				<span style="width: 65%"></span>
+			</div>
+		</div>
+		<a class="nav-link" href="#" tabindex="-1" style="color: white;font-size: 125%;margin-left: 45%;
+		padding-top: 2%;">Need Help?</a>
+		
+		</div>
+	  </div>
+	</nav>
+    <div class="row"style="width: 50%;    margin-left: 10%;    margin-top: 5%;">
+		<div class="col-11" style="
+					background: #8e8f8e0d;
+					padding: 3%;
+				">
+			<div class="form-check">
+			  <input class="form-check-input" style="border-color: #f4813f;" 
+			  type="checkbox" value="" id="invalidCheck2" required>
+			  <label class="form-check-label" for="invalidCheck2">
+				Name
+			  </label><br>
+			  <label class="form-check-label" for="invalidCheck2">
+				Phone Number
+			  </label><br>
+			  <label class="form-check-label" for="invalidCheck2">
+				Flat Number, Building Name, Street/Locality
+			  </label><br>
+			  <label class="form-check-label" for="invalidCheck2">
+				Locality
+			  </label><br>
+			  <label class="form-check-label" for="invalidCheck2">
+				State
+			  </label><br>
+			  <label class="form-check-label" for="invalidCheck2">
+				Pincode
+			  </label><br>
+			  
+			</div>
+		  </div>
+		  <div class="col-1"style="
+					background: #8e8f8e0d;
+					padding: 3%;
+				">
+		  <div class="dropdown" style="float:right;">
+			  <button class="dropbtn">
+			  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-grid-fill" viewBox="0 0 16 16">
+				  <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"/>
+				</svg></button>
+			  <div class="dropdown-content">
+				<a href="#">Edit</a>
+				<a href="#">Delete</a>
+				
+			  </div>
+		  </div>
+
+		  </div>
+		  <div class="col-12"style="
+					margin-top: 4%;
+				">
+			<a href="order_summary.html" class="btn btn-primary" type="submit" style=" background: transparent;
+						border: #f4813f;
+						border-style: dotted;
+						color: #f4813f;
+						width: 50%;text-decoration: none;">+ ADD NEW ADDRESS</a>
+			<a href="order_summary_after_address.html"type="submit" style="background: #f4813f;
+				text-decoration: none;
+				border: #f4813f;
+				color: white;
+				width: 49%;
+				height: 103%;
+				text-align: center;
+				border-radius: 0%;
+				padding-top: 0.5%;
+				padding: 1%;">CONTINUE</a>
+		  </div>
+	</div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    -->
+	 <script id="rendered-js" >
+		$(".meter > span").each(function () {
+		  $(this).
+		  data("origWidth", $(this).width()).
+		  width(0).
+		  animate(
+		  {
+			width: $(this).data("origWidth") },
+
+		  1200);
+
+		});
+
+    </script>
+  </body>
+</html>
